@@ -24,7 +24,7 @@ import java.util.Set;
 })
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-public class Article  {
+public class Article  extends AuditingFields{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,17 +40,6 @@ public class Article  {
     @OrderBy("createdAt DESC")
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
-
-    @CreatedBy
-    @Column(nullable = false)
-    private String createdBy; // 제목
-
-    @CreatedDate @Column(nullable = false, length = 100)private LocalDateTime createdAt;
-
-    @CreatedDate @Column(nullable = false, length = 100)private LocalDateTime modifiedAt;
-    @CreatedBy
-    @Column(nullable = false)
-    private String modifiedBy; // 제목
 
     protected Article() {}
 

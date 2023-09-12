@@ -22,7 +22,7 @@ import java.util.Set;
 })
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-public class ArticleComment {
+public class ArticleComment extends AuditingFields{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,18 +38,6 @@ public class ArticleComment {
     @OrderBy("id")
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)// 연습용 2023
     private Set<ArticleComment> childComments = new LinkedHashSet<>();
-
-    @CreatedBy
-    @Column(nullable = false)
-    private String createdBy; // 제목
-
-    @CreatedDate
-    @Column(nullable = false, length = 100)private LocalDateTime createdAt;
-
-    @CreatedDate @Column(nullable = false, length = 100)private LocalDateTime modifiedAt;
-    @CreatedBy
-    @Column(nullable = false)
-    private String modifiedBy; // 제목
 
 
 

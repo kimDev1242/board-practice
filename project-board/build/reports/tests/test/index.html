@@ -20,25 +20,25 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">11</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">3</div>
 <p>failures</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="ignored">
-<div class="counter">0</div>
+<div class="counter">6</div>
 <p>ignored</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.296s</div>
+<div class="counter">0.466s</div>
 <p>duration</p>
 </div>
 </td>
@@ -47,8 +47,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">40%</div>
 <p>successful</p>
 </div>
 </td>
@@ -58,13 +58,65 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Packages</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Classes</a>
+<a href="#tab1">Ignored tests</a>
+</li>
+<li>
+<a href="#tab2">Packages</a>
+</li>
+<li>
+<a href="#tab3">Classes</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<ul class="linkList">
+<li>
+<a href="classes/com.practice.project.repository.JpaRepositoryTest.html">JPA 연결 테스트</a>.
+<a href="classes/com.practice.project.repository.JpaRepositoryTest.html#givenTestData_whenDeleting_thenWorksFine()">delete 테스트</a>
+</li>
+<li>
+<a href="classes/com.practice.project.repository.JpaRepositoryTest.html">JPA 연결 테스트</a>.
+<a href="classes/com.practice.project.repository.JpaRepositoryTest.html#givenTestData_whenSelecting_thenWorksFine()">select 테스트</a>
+</li>
+<li>
+<a href="classes/com.practice.project.repository.JpaRepositoryTest.html">JPA 연결 테스트</a>.
+<a href="classes/com.practice.project.repository.JpaRepositoryTest.html#givenTestData_whenUpdating_thenWorksFine()">update 테스트</a>
+</li>
+</ul>
+</div>
+<div id="tab1" class="tab">
+<h2>Ignored tests</h2>
+<ul class="linkList">
+<li>
+<a href="classes/com.practice.project.controller.DataRestTest.html">Data REST - API 테스트</a>.
+<a href="classes/com.practice.project.controller.DataRestTest.html#givenNothing_whenRequestingArticleComment_thenReturnsArticleCommentJsonResponse()">[api] 댓글 단건 조회</a>
+</li>
+<li>
+<a href="classes/com.practice.project.controller.DataRestTest.html">Data REST - API 테스트</a>.
+<a href="classes/com.practice.project.controller.DataRestTest.html#givenNothing_whenRequestingArticleCommentsFromArticle_thenReturnsArticleCommentsJsonResponse()">[api] 게시글 -&gt; 댓글 리스트 조회</a>
+</li>
+<li>
+<a href="classes/com.practice.project.controller.DataRestTest.html">Data REST - API 테스트</a>.
+<a href="classes/com.practice.project.controller.DataRestTest.html#givenNothing_whenRequestingArticleComments_thenReturnsArticleCommentsJsonResponse()">[api] 댓글 리스트 조회</a>
+</li>
+<li>
+<a href="classes/com.practice.project.controller.DataRestTest.html">Data REST - API 테스트</a>.
+<a href="classes/com.practice.project.controller.DataRestTest.html#givenNothing_whenRequestingArticle_thenReturnsArticleJsonResponse()">[api] 게시글 단건 조회</a>
+</li>
+<li>
+<a href="classes/com.practice.project.controller.DataRestTest.html">Data REST - API 테스트</a>.
+<a href="classes/com.practice.project.controller.DataRestTest.html#givenNothing_whenRequestingArticles_thenReturnsArticlesJsonResponse()">[api] 게시글 리스트 조회</a>
+</li>
+<li>
+<a href="classes/com.practice.project.controller.DataRestTest.html">Data REST - API 테스트</a>.
+<a href="classes/com.practice.project.controller.DataRestTest.html#givenNothing_whenRequestingUserAccounts_thenThrowsException()">[api] 회원 관련 API 는 일체 제공하지 않는다.</a>
+</li>
+</ul>
+</div>
+<div id="tab2" class="tab">
 <h2>Packages</h2>
 <table>
 <thead>
@@ -85,13 +137,33 @@
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0.296s</td>
+<td>0.148s</td>
 <td class="success">100%</td>
+</tr>
+<tr>
+<td class="skipped">
+<a href="packages/com.practice.project.controller.html">com.practice.project.controller</a>
+</td>
+<td>6</td>
+<td>0</td>
+<td>6</td>
+<td>0s</td>
+<td class="skipped">-</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="packages/com.practice.project.repository.html">com.practice.project.repository</a>
+</td>
+<td>4</td>
+<td>3</td>
+<td>0</td>
+<td>0.318s</td>
+<td class="failures">25%</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab3" class="tab">
 <h2>Classes</h2>
 <table>
 <thead>
@@ -112,8 +184,28 @@
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0.296s</td>
+<td>0.148s</td>
 <td class="success">100%</td>
+</tr>
+<tr>
+<td class="skipped">
+<a href="classes/com.practice.project.controller.DataRestTest.html">com.practice.project.controller.DataRestTest</a>
+</td>
+<td>6</td>
+<td>0</td>
+<td>6</td>
+<td>0s</td>
+<td class="skipped">-</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/com.practice.project.repository.JpaRepositoryTest.html">com.practice.project.repository.JpaRepositoryTest</a>
+</td>
+<td>4</td>
+<td>3</td>
+<td>0</td>
+<td>0.318s</td>
+<td class="failures">25%</td>
 </tr>
 </tbody>
 </table>
@@ -126,7 +218,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.2.1</a> at 2023. 9. 9. 오후 12:04:54</p>
+<a href="http://www.gradle.org">Gradle 8.2.1</a> at 2023. 9. 12. 오후 11:57:53</p>
 </div>
 </div>
 </body>
