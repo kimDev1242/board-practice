@@ -18,7 +18,7 @@ import java.util.Set;
 @ToString
 @Table(indexes = {
         @Index(columnList = "title"),
-        @Index(columnList = "hashtags"),
+        @Index(columnList = "hashtag"),
         @Index(columnList = "createdAt"),
         @Index(columnList = "createdBy")
 })
@@ -30,11 +30,16 @@ public class Article  extends AuditingFields{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
+    @JoinColumn(name = "userId")
+    @ManyToOne(optional = false)
+    private UserAccount userAccount; // 유저 정보 (ID)
+
     @Setter @Column(nullable = false) private String title; // 제목
     @Setter @Column(nullable = false, length = 10000) private String content; // 본문
 
 
-    @Setter @Column(nullable = false)  private String hashtags;
+    @Setter @Column(nullable = false)  private String hashtag;
 
     @ToString.Exclude
     @OrderBy("createdAt DESC")
@@ -43,15 +48,16 @@ public class Article  extends AuditingFields{
 
     protected Article() {}
 
-    private Article(String title, String content, String hashtags) {
+    private Article(UserAccount userAccount,String title, String content, String hashtag) {
 
+        this.userAccount=userAccount;
         this.title = title;
         this.content = content;
-        this.hashtags = hashtags;
+        this.hashtag = hashtag;
     }
 
-    public static Article of (String title, String content, String hashtags) {
-        return new Article(title,content, hashtags);
+    public static Article of (UserAccount userAccount,String title, String content, String hashtag) {
+        return new Article(userAccount,title,content, hashtag);
     }
 
     @Override

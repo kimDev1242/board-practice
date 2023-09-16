@@ -39,19 +39,22 @@ public class ArticleComment extends AuditingFields{
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)// 연습용 2023
     private Set<ArticleComment> childComments = new LinkedHashSet<>();
 
-
+    @Setter
+    @JoinColumn(name = "userId")
+    @ManyToOne(optional = false)
+    private UserAccount userAccount; // 유저 정보 (ID)
 
 
     protected ArticleComment() {}
 
-    private ArticleComment(Article article,  String content) {
+    private ArticleComment(Article article, UserAccount userAccount, String content) {
         this.article = article;
-
+        this.userAccount=userAccount;
         this.content = content;
     }
 
-    public static ArticleComment of(Article article,  String content) {
-        return new ArticleComment(article,  content);
+    public static ArticleComment of(Article article,  UserAccount userAccount,String content) {
+        return new ArticleComment(article,userAccount,  content);
     }
 
 
