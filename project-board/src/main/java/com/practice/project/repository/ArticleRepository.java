@@ -3,6 +3,7 @@ package com.practice.project.repository;
 
 import com.practice.project.domain.Article;
 import com.practice.project.domain.QArticle;
+import com.practice.project.repository.querydsl.ArticleRepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.querydsl.binding.QuerydslBinderCustomizer;
@@ -18,6 +19,7 @@ import com.querydsl.core.types.dsl.StringExpression;
 @RepositoryRestResource
 public interface ArticleRepository extends
         JpaRepository<Article, Long>,
+        ArticleRepositoryCustom,
         QuerydslPredicateExecutor<Article>,
         QuerydslBinderCustomizer<QArticle> {
 
