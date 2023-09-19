@@ -26,8 +26,6 @@ public class QArticleComment extends EntityPathBase<ArticleComment> {
 
     public final QArticle article;
 
-    public final SetPath<ArticleComment, QArticleComment> childComments = this.<ArticleComment, QArticleComment>createSet("childComments", ArticleComment.class, QArticleComment.class, PathInits.DIRECT2);
-
     public final StringPath content = createString("content");
 
     //inherited

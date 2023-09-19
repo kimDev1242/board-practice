@@ -4,13 +4,12 @@ import com.practice.project.domain.Article;
 
 import com.practice.project.domain.UserAccount;
 
-import com.practice.project.domain.type.SearchType;
+import com.practice.project.domain.constant.SearchType;
 import com.practice.project.dto.ArticleDto;
 import com.practice.project.dto.ArticleWithCommentsDto;
 import com.practice.project.dto.UserAccountDto;
 import com.practice.project.repository.ArticleRepository;
 
-import org.assertj.core.api.InstanceOfAssertFactories;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,17 +17,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.test.util.ReflectionTestUtils;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
