@@ -1,8 +1,6 @@
 package com.practice.project.service;
 
-import com.practice.project.domain.Article;
-import com.practice.project.domain.ArticleComment;
-import com.practice.project.domain.UserAccount;
+import com.practice.project.domain.*;
 import com.practice.project.dto.ArticleCommentDto;
 import com.practice.project.dto.ArticleDto;
 import com.practice.project.repository.*;
@@ -50,6 +48,9 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.BDDMockito.*;
+
+@DisplayName("비즈니스 로직 - 댓글")
+@ExtendWith(MockitoExtension.class)
 class ArticleCommentServiceTest {
 
     @InjectMocks private ArticleCommentService sut;
@@ -189,7 +190,7 @@ class ArticleCommentServiceTest {
 
     private ArticleComment createArticleComment(String content) {
         return ArticleComment.of(
-                Article.of(createUserAccount(), "title", "content", "hashtag"),
+                createArticle(),
                 createUserAccount(),
                 content
         );
@@ -206,12 +207,18 @@ class ArticleCommentServiceTest {
     }
 
     private Article createArticle() {
-        return Article.of(
+        Article article = Article.of(
                 createUserAccount(),
                 "title",
-                "content",
-                "#java"
+                "content"
         );
+        article.addHashtags(Set.of(createHashtag(article)));
+
+        return article;
+    }
+
+    private Hashtag createHashtag(Article article) {
+        return Hashtag.of("java");
     }
 
 }
