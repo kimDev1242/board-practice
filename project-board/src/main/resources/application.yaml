@@ -10,10 +10,10 @@ logging:
 
 spring:
   datasource:
-    url: ${LOCAL_DB_URL}
-    username: ${LOCAL_DB_USERNAME}
-    password: ${LOCAL_DB_PASSWORD}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:postgresql://localhost:5432/board
+    username: dev
+    password: 987654321
+  #  driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     open-in-view: false
     defer-datasource-initialization: true
