@@ -111,4 +111,5 @@ class ArticleCommentControllerTest {
                 .andExpect(redirectedUrl("/articles/" + articleId));
         then(articleCommentService).should().saveArticleComment(any(ArticleCommentDto.class));
     }
+
 }
