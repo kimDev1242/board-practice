@@ -1,4 +1,4 @@
-package com.practice.project.domain.type;
+package com.practice.project.domain.constant;
 
 import lombok.Getter;
 
