@@ -3,6 +3,7 @@ package com.practice.project.repository;
 
 import com.practice.project.domain.Article;
 import com.practice.project.domain.QArticle;
+import com.practice.project.domain.projection.ArticleProjection;
 import com.practice.project.repository.querydsl.ArticleRepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
@@ -16,7 +17,7 @@ import com.querydsl.core.types.dsl.DateTimeExpression;
 import com.querydsl.core.types.dsl.StringExpression;
 
 
-@RepositoryRestResource
+@RepositoryRestResource(excerptProjection = ArticleProjection.class)
 public interface ArticleRepository extends
         JpaRepository<Article, Long>,
         ArticleRepositoryCustom,

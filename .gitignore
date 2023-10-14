@@ -22,3 +22,5 @@ project-board/.gradle/file-system.probe
 project-board/.idea/compiler.xml
 
 project-board/build/tmp/compileJava/previous-compilation-data.bin
+
+board-and-admin/.idea/workspace.xml
