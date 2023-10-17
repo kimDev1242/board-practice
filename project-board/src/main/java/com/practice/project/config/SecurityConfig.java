@@ -27,7 +27,6 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 public class SecurityConfig {
-
     @Bean
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
@@ -36,6 +35,7 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                        .mvcMatchers("/api/**").permitAll()
                         .mvcMatchers(
                                 HttpMethod.GET,
                                 "/",
@@ -51,6 +51,7 @@ public class SecurityConfig {
                                 .userService(oAuth2UserService)
                         )
                 )
+                .csrf(csrf -> csrf.ignoringAntMatchers("/api/**"))
                 .build();
     }
 
@@ -104,7 +105,6 @@ public class SecurityConfig {
                             )
                     );
         };
-
     }
 
     @Bean
